@@ -1,0 +1,11 @@
+<launch>
+    <node name="rvizvisualisation" pkg="rviz" type="rviz" output="log" args="-d $(find vins)/../config/vins_rviz_config.rviz" />
+
+    <node name="vins_node" pkg="vins" type="vins_node" output="screen" args="$(find vins)/../config/euroc/euroc_stereo_imu_config.yaml" />
+    
+    <node name="loop_fusion_node" pkg="loop_fusion" output="screen" type="loop_fusion_node" args="$(find vins)/../config/euroc/euroc_stereo_imu_config.yaml" />
+    
+    <node name="awen_evaluate" pkg="vins" output="screen" type="awen_evaluate" />
+    
+    <node pkg="rosbag" type="play" name="rosbag_play" output="screen" args="/home/yuwen/Euroc_rosbags/MH_01_easy.bag"/>
+</launch>

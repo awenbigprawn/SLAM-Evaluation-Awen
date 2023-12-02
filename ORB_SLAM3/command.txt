@@ -1,0 +1,5 @@
+rosbag play --pause --clock ~/Urbant_rosbag/2021-04-16-10-19-56.bag /zed2/zed_node/imu/data:=/imu /zed2/zed_node/left/image_rect_gray:=/camera/left/image_raw /zed2/zed_node/right/image_rect_gray:=/camera/right/image_raw
+
+
+rosrun ORB_SLAM3 Stereo_Inertial ~/ORB_SLAM3/ORB_SLAM3/Vocabulary/ORBvoc.txt /home/yuwen/ORB_SLAM3/ORB_SLAM3/Examples/Stereo-Inertial/Urbant.yaml true
+

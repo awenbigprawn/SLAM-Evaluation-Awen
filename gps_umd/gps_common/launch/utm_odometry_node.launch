@@ -1,0 +1,32 @@
+<launch>
+
+<!--
+    fix_translator translates to and from NatSatFix 
+    and GPSFix messages.
+
+    If you want to translate from NavSatFix to GPSFix,
+    you have to modify the first two remap lines.
+   
+    If you want to translate from GPSFix to NavSatFix,
+    you have to uncomment and modify the last two remap 
+    lines.
+
+    Only adjust topic names after "to=" in each remap line.
+-->
+
+  <node name="gps_to_utm" pkg="gps_common" type="utm_odometry_node">
+    <!-- Translate from NavSatFix to UTMOdometry //-->
+      <remap from="fix"  to="/ublox_gps/fix"/>       
+      <remap from="odom"  to="/vo"/>
+
+    <!-- Translate from GPSFix to NavSatFix //-->
+     <!--
+       <remap from="/gps_fix_in"     to="/YOUR_GPSFIX_TOPIC"/>   
+       <remap from="/navsat_fix_out" to="/YOUR_NAVSATFIX_TOPIC"/>   
+     //-->
+  </node>
+
+  
+
+</launch>
+
